@@ -1,0 +1,98 @@
+# Rocket Docket - first draft
+
+# first section: needs to ask user for date, garage code, duty number, route number, driver name, badge number, pay number, W.R.D or booked overtime?
+#second section: asks user for scheduled finish time(first half), actual finish time, difference between times, bus to garage or stand?, next bus from garage/stand?, amount late taking over garage/stand?
+#third section: asks user scheduled finish time(for second half), actual finish time, difference between two times, reason for lateness
+
+data_list = []
+only_letters = "\nOnly letters are accepted. No Numbers. Try again."
+only_numbers = "\nOnly numbers are accepted. No Letters. Try again."
+
+
+user_date = raw_input("Enter the date: ")
+while user_date.isalpha() or len(user_date) < 6:
+    user_date = raw_input("Enter the date: ")
+else:
+    False
+    
+user_garage = raw_input("Enter your Garage: ")
+while len(user_garage) == 0 or user_garage.isdigit():
+    print only_letters
+    user_garage = raw_input("Enter your Garage: ")
+else:
+    user_garage = user_garage.upper()
+    
+user_duty = raw_input("Enter your Duty: ")
+while len(user_duty) <= 2 or user_duty >= 5 or user_duty.isalpha():
+    print only_numbers
+    user_duty = raw_input("Enter your Duty: ")
+else:
+    False
+
+user_route = raw_input("Enter your route: ")
+while user_route == "" or user_route.isalpha() or len(user_route) >= 5:
+    print only_numbers
+    user_route = raw_input("Enter your route: ")
+else:
+    False
+    
+user_name = raw_input("Enter your Surname: ")
+while user_name == "" or user_name.isdigit():
+    print only_letters
+    user_name = raw_input("Enter your Surname: ")
+else:
+    False
+    
+user_badge = raw_input("Enter your Badge Number: ")
+while user_badge == "" or len(user_badge) <= 4:
+    print only_numbers
+    user_badge = raw_input("Enter your Badge Number: ")
+else:
+    False
+    
+user_pay_no = raw_input("Enter your Pay No: ")
+while len(user_pay_no) < 1:
+    print only_numbers
+    user_pay_no = raw_input("Enter your Pay No: ")
+else:
+    False
+
+
+late_or_not = raw_input("Were you late for your first half? Yes or No?: ")
+
+if late_or_not == "y" or late_or_not == "yes" or late_or_not == "":
+    print "--First half--"
+    first_scheduled_time = raw_input("Enter your SCHEDULED finish time: ")
+    while len(first_scheduled_time) < 4 or first_scheduled_time.isalpha():
+        print only_numbers
+        first_scheduled_time = raw_input("Enter your SCHEDULED finish time: ")
+    else:
+        ""      
+    first_actual_time = raw_input("Enter your ACTUAL finish time: ")
+    while len(first_actual_time) < 4 or first_actual_time.isalpha():
+        print only_numbers
+        first_actual_time = raw_input("Enter your ACTUAL finish time: ")
+    else:
+        ""          
+    first_time_difference = int(first_actual_time) - int(first_scheduled_time)
+    print "You were %d minutes late" % first_time_difference  
+else:
+    ""
+
+print "\n--Second Half--"
+second_scheduled_time = raw_input("Enter your SCHEDULED finish time: ")
+while len(second_scheduled_time) < 4 or second_scheduled_time.isalpha():
+    print only_numbers
+    second_scheduled_time = raw_input("Enter your SCHEDULED finish time: ")
+else:
+    False
+    
+second_actual_time = raw_input("Enter your ACTUAL finish time: ")
+while len(second_actual_time) < 4 or second_actual_time.isalpha():
+    print only_numbers
+    second_actual_time = raw_input("Enter your ACTUAL finish time: ")
+else:
+    False
+    
+second_time_difference = int(second_actual_time) - int(second_scheduled_time)
+print second_time_difference
