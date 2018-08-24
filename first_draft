@@ -1,4 +1,5 @@
 # Rocket Docket - first draft
+# Python 2.6
 
 # first section: needs to ask user for date, garage code, duty number, route number, driver name, badge number, pay number, W.R.D or booked overtime?
 #second section: asks user for scheduled finish time(first half), actual finish time, difference between times, bus to garage or stand?, next bus from garage/stand?, amount late taking over garage/stand?
